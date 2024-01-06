@@ -1,113 +1,99 @@
-import Image from 'next/image'
+import Image from 'next/image';
+import Link from 'next/link';
+import LinkedIn from '../../public/linkedin-logo.png'
+import Github from '../../public/github-mark.png'
+import Skill from './Components/Skill';
 
 export default function Home() {
+
+  const spawnnSkills = ['Unity', 'JavaScript', 'React', 'DynamoDB', 'Sagemaker', 'Lambda', 'Python']
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <div className="w-full bg-secondaryBg">
+      <main className="w-full min-h-screen flex flex-col lg:flex-row">
+        {/* Left side - sticky */}
+        <section className="lg:w-1/2 lg:min-h-screen bg-secondaryBg lg:flex lg:flex-col lg:items-end lg:justify-between sticky top-0 h-full  ">
+          <div className="min-w-xl lg:h-screen border px-4">
+            <div className='lg:py-24'>
+              <h1 className="text-title-heading text-4xl sm:text-5xl font-semibold tracking-tight mb-4 ">Aldrich Reboja</h1>
+              <p className="text-title-heading font-medium tracking-tight mb-4">Full Stack Engineer at Spawnn</p>
+              <p className="text-simple-text w-2/3 tracking-tight text-sm ">
+                I build end-to-end solutions for various product use cases.
+              </p>
+            </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+            <div className='hidden lg:block lg:py-24'>
+              <p className='text-simple-text py-2 font-semibold cursor-pointer'>About</p>
+              <p className='text-simple-text py-2 font-semibold cursor-pointer'>Experience</p>
+              <p className='text-simple-text py-2 font-semibold cursor-pointer'>Projects</p>
+            </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+            <div className=' w-full flex lg:justify-end lg:px-9 lg:py-16 mt-6'>
+            <Link href = "https://www.linkedin.com/in/aktreboja/" target='_blank'><Image className='h-fit w-7 lg:w-9 mr-3 filter invert cursor-pointer' src = {LinkedIn} width = {100} alt = "Linkedin Logo"/></Link>
+            <Link href = "https://github.com/AldrichhhXO" target = "_blank"><Image className='h-fit w-7 lg:w-9 mr-3 filter invert cursor-pointer' src = {Github} width = {100} alt = "Github Logo"/></Link>
+            {/* <Image className='h-fit w-8 mr-3' src = {LinkedIn} width = {100} alt = "Linkedin Logo"/> */}
+          </div>
+          </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+        </section>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+        {/* Right side - scrollable */}
+        <section className="w-full lg:w-1/2 h-full lg:overflow-y-auto">
+          {/* About section */}
+          <section className="my-16 flex lg:px-8">
+
+            <div className="w-full lg:max-w-lg lg:py-24 text-sm px-4">
+              <p className='block lg:hidden font-bold text-title-heading py-3'>About</p>
+              <div className='mb-5 text-simple-text  md:text-md leading-relaxed'>
+               From my early days immersed in a multitude of video games, I have cultivated a unique foundation that has influenced my journey as a <strong>Full Stack Engineer</strong>.
+               Navigating through various genres - from strategy and role-playing games to fast-paced shooters - they have both honed my strategic thinking and problem solving skills but
+               also helped foster an easily adaptable mindset necessary with overcome various challenges.
+              </div>
+
+              <div className ='mb-5 text-simple-text md:text-md leading-relaxed'>
+                Today i&apos;ve had the honor and opportunity to be able to approach and implement new technologies through hands-on learning, a trait that has proved to be invaluable in a constantly changing field. 
+                Currently I am building products for <strong>Spawnn.</strong> On my free time I
+                am either working on improving my early and late game strategies in <strong>Teamfight Tactics</strong>, or out enjoying and learning about various cultures through food.
+              </div>
+            </div>
+          </section>
+
+          <p className="text-title-heading px-4 font-bold lg:hidden">Experience</p>
+          {/* Experience Section */}
+          <section className="w-full border lg:px-8 lg:max-w-xl ">
+            
+            
+
+            {/* Experience Modals */}
+            <div className="hover:bg-modal-bg hover:bg-opacity-50 duration-100 hover:shadow-md w-full sm:flex  rounded-md py-5 px-2 ">
+              {/* ... */}
+              <div className='w-fit sm:pr-4 sm:pl-2 lg:px-0 lg:w-1/3'>
+                <p className='text-simple-text text-md font-semibold px-2 sm:px-0 w-full text-nowrap'>2022 - Present</p>
+              </div>
+              <div className=' sm:w-4/5 border '>
+                <div className='px-2'>
+                  <p className='text-title-heading font-semibold pb-4'>Full Stack Engineer - Spawnn</p>
+                  <p className='text-simple-text pb-4 lg:text-md text-sm '>
+                    Rapidly contributed to the development of diverse solutions to enhance the gaming space, contributing to the development of products ranging from recommendation systems to
+                    custom and easily pluggable SDKs in Unity. 
+                  </p>
+                  <p className='text-simple-text pb-4 lg:text-md text-sm'>
+                    Incorporated systems across multiple applications, from AWS services to API Servers with Python or JavaScript with the aim to improve in-game monetization of items.
+                  </p>
+
+                  <div className='w-full  py-1 flex flex-wrap'>
+                    {spawnnSkills.map((item, index) => (
+                      <Skill key = {index} skillName= {item}/>
+                    ))}
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+  );
 }
