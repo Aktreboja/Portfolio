@@ -1,18 +1,33 @@
 {
     "aboutText": [
         "From my early days immersed in a multitude of video games, I have cultivated a unique foundation that has influenced my journey as a <strong>Full Stack Engineer</strong>. Navigating through various genres - from strategy and role-playing games to fast-paced shooters - they have both honed my strategic thinking and problem solving skills butalso helped foster an easily adaptable mindset necessary with overcome various challenges.",
-        "Today i&apos;ve had the honor and opportunity to be able to approach and implement new technologies through hands-on learning, a trait that has proved to be invaluable in a constantly changing field. Currently I am building products for <strong>Spawnn.</strong> On my free time Iam either working on improving my early and late game strategies in <strong>Teamfight Tactics</strong>, or out enjoying and learning about various cultures through food."
+        "Today i&apos;ve had the honor and opportunity to be able to approach and implement new technologies through hands-on learning, a trait that has proved to be invaluable in a constantly changing field. Currently I am building products for <strong>Spawnn.</strong> On my free time I am either working on improving my early and late game strategies in <strong>Teamfight Tactics</strong>, or out enjoying and learning about various cultures through food."
     ],
     "experience": [
         {
-            "timeline": "2022 - Present",
-            "positionName": "Full Stack Engineer - Spawnn",
+            "timeline": "October 2022 - January 2024",
+            "positionName": "Founding Engineer - Spawnn",
             "description": ["Rapidly contributed to the development of diverse solutions to enhance the gaming space, contributing to the development of products ranging from recommendation systems to custom and easily pluggable SDKs in Unity. ",
                         "Incorporated systems across multiple applications, from AWS services to API Servers with Python or JavaScript with the aim to improve in-game monetization of items."],
             "skills": ["Unity", "JavaScript", "React", "DynamoDB", "Sagemaker", "Lambda", "Python"]
         }
     ],
     "projectExperience": [
+        {
+            "timeline": "February 2024 - Present",
+            "positionName": "Nightowl",
+            "description": [
+                "A Next.js web application focused on enhancing the discoverability of various tracks, artists, and genres within Spotify.",
+                "Allows the user to be able to analyze their most liked tracks and artists in different time frames, as well as use that data to retrieve better personalized recommendations."
+            ],
+            "links": [
+                {
+                    "url":"https://github.com/AldrichhhXO/spotify",
+                    "linkName": "Github Repo"
+                }
+            ],
+            "skills": ["React", "TypeScript", "Next.js", "Spotify Web API" ]
+        },
         {
             "timeline": "Feb 2021 - May 2021",
             "positionName": "Freelance Project - 7YearsLater",
@@ -23,7 +38,7 @@
             "links": [
                 {
                     "url":"http://www.7yearslater.com",
-                    "linkName": "7YearsLater"
+                    "linkName": "Live Site"
                 }],
             "skills": ["React", "Node.js", "Express", "MySQL"]
         }

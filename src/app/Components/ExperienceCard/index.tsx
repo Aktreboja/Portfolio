@@ -16,7 +16,7 @@ interface ExperienceCardProps {
 
 const ExperienceCard  = ({ timeline, positionName, description, links, skills }: ExperienceCardProps) => {
   return (
-    <div className="hover:bg-modal-bg hover:bg-opacity-50 duration-100 hover:shadow-md w-[95%] sm:flex justify-between rounded-md py-5 px-2 ">
+    <div className="hover:bg-modal-bg hover:bg-opacity-50 duration-100 hover:shadow-md w-[95%] sm:flex justify-between rounded-md py-5 px-2 my-2">
         <div className='sm:pr-4 sm:pl-2 lg:px-0 w-1/3 '>
             <p className='text-simple-text text-md font-semibold px-2 sm:px-0 w-fit lg:w-full text-nowrap lg:text-wrap '>{timeline}</p>
         </div>
@@ -31,7 +31,7 @@ const ExperienceCard  = ({ timeline, positionName, description, links, skills }:
                 {links && links.length > 0 && (
                 <div>
                 {links.map((link, index) => (
-                <a href={link.url} key={index} target="_blank" className="text-simple-text hover:underline font-semibold text-sm">{link.linkName}</a> 
+                <a href={link.url} key={index} target="_blank" className="text-simple-text hover:underline font-semibold text-sm mx-4 my-3">{link.linkName}</a> 
                 ))}
                 </div>
             )}
