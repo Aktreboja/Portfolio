@@ -3,15 +3,6 @@
         "From my early days immersed in a multitude of video games, I have cultivated a unique foundation that has influenced my journey as a <strong>Full Stack Engineer</strong>. Navigating through various genres - from strategy and role-playing games to fast-paced shooters - they have both honed my strategic thinking and problem solving skills butalso helped foster an easily adaptable mindset necessary with overcome various challenges.",
         "Today i&apos;ve had the honor and opportunity to be able to approach and implement new technologies through hands-on learning, a trait that has proved to be invaluable in a constantly changing field. Currently I am building products for <strong>Spawnn.</strong> On my free time I am either working on improving my early and late game strategies in <strong>Teamfight Tactics</strong>, or out enjoying and learning about various cultures through food."
     ],
-    "experience": [
-        {
-            "timeline": "October 2022 - January 2024",
-            "positionName": "Founding Engineer - Spawnn",
-            "description": ["Rapidly contributed to the development of diverse solutions to enhance the gaming space, contributing to the development of products ranging from recommendation systems to custom and easily pluggable SDKs in Unity. ",
-                        "Incorporated systems across multiple applications, from AWS services to API Servers with Python or JavaScript with the aim to improve in-game monetization of items."],
-            "skills": ["Unity", "JavaScript", "React", "DynamoDB", "Sagemaker", "Lambda", "Python"]
-        }
-    ],
     "projectExperience": [
         {
             "timeline": "February 2024 - Present",
@@ -41,6 +32,67 @@
                     "linkName": "Live Site"
                 }],
             "skills": ["React", "Node.js", "Express", "MySQL"]
+        }
+    ],
+    "projects": [
+        {
+            "projectTitle": "NightOwl",
+            "projectDescription": [
+                "A Next.js web application focused on enhancing the discoverability of various tracks, artists, and genres within Spotify.",
+                "Allows the user to be able to analyze their most liked tracks and artists in different time frames, as well as use that data to retrieve better personalized recommendations."
+            ],
+            "skills": ["React", "TypeScript", "TailwindCSS", "Next.js"],
+            "sourceCode": "https://github.com/Aktreboja/spotify",
+            "liveSite": "https://spotify-hazel-mu.vercel.app/",
+            "projectImage": "/nightowl.png"
+        },
+        {
+            "projectTitle": "NbaStatTracker",
+            "projectDescription": [
+                "A Next.js web application focused on enhancing the discoverability of various tracks, artists, and genres within Spotify.",
+                "Allows the user to be able to analyze their most liked tracks and artists in different time frames, as well as use that data to retrieve better personalized recommendations."
+            ],
+            "skills": ["React", "TypeScript", "TailwindCSS", "Next.js", "Flask", "Python"],
+            "sourceCode": "https://github.com/Aktreboja/spotify",
+            "liveSite": "https://spotify-hazel-mu.vercel.app/",
+            "projectImage": "/nbastattracker.png"
+        },
+        {
+            "projectTitle": "FeedMe",
+            "projectDescription": [
+                "A Next.js web application focused on enhancing the discoverability of various tracks, artists, and genres within Spotify.",
+                "Allows the user to be able to analyze their most liked tracks and artists in different time frames, as well as use that data to retrieve better personalized recommendations."
+            ],
+            "skills": ["React", "TypeScript", "TailwindCSS", "Next.js", "Postgres", "Google Maps"],
+            "projectImage": "/feedme.png",
+            "sourceCode": "https://github.com/Aktreboja/FeedMe",
+            "liveSite": ""
+        }
+    ],
+    "experience": [
+        {
+            "title": "Founding Engineer",
+            "company": "Spawnn",
+            "timeline": "January 2023 - January 2024",
+            "description": [
+                "Enhanced responsiveness and SEO performance of customer-facing interfaces in React, achieving a 33% improvement in overall web page performance.",
+                "Documented and refactored frontend React components to enhance reusability across different page routes, increasing development times by 25%.",
+                "Implemented a video compression service on EC2, enabling efficient storage and retrieval of videos on demand, resulting in 70% smaller file sizes and faster page load times by 60%."
+            ],
+            "skills": ["Next.js", "TypeScript", "DynamoDB", "AWS", "MongoDB", "Python", "FastAPI"],
+            "sourceCode": "",
+            "liveSite": "https://www.spawnn.gg",
+            "projectImage": "/spawnn.png"
+        },
+        {
+            "title": "Freelance Engineer",
+            "description": [
+                "A comprehensive React application for wedding management, featuring a minimal and clean web design."
+            ],
+            "sourceCode": "https://github.com/Aktreboja/spotify",
+            "liveSite": "https://www.7yearslater.com",
+            "skills": ["React", "MySQL", "HTML", "CSS", "JavaScript"],
+            "projectImage": "/7yearslater.png"
         }
     ]
 }

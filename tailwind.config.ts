@@ -8,6 +8,20 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        fadeIn: 'fadeIn 1s ease-in-out forwards',
+        fadeInLeft: 'fadeInLeft 1s ease-in-out forwards'
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": {opacity: '0'},
+          "100%": { opacity: '1'}
+        },
+        fadeInLeft: {
+          "0%": { opacity: '0', transform: "translate(-100px)"},
+          "100%": {opacity: '1', transform: "translate(0px)"}
+        }
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -15,10 +29,10 @@ const config: Config = {
       },
     },
     colors: {
-      'baseBg': '#1C1C1C',
+      'baseBg': '#37718E',
       'secondaryBg': '#2C2C2D',
       'title-heading': '#FFFFFF',
-      'simple-text': '#CAC6C6',
+      'simple-text': '#454955',
       'modal-bg': '#35393F',
       'text-skill': '#D8D9DA',
       'skill-bg': '#475156',

@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Montserrat } from "next/font/google";
+
 import Head from 'next/head'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const montserrat = Montserrat({ subsets: ['latin'] , weight: 'variable'})
 
 export const metadata: Metadata = {
   title: 'Aldrich Reboja',
@@ -33,7 +34,7 @@ export default function RootLayout({
         <meta name="description" content={metadata.description || undefined} />
 
       </Head>
-      <body className={inter.className}>{children}</body>
+      <body className={montserrat.className}>{children}</body>
     </html>
   )
 }

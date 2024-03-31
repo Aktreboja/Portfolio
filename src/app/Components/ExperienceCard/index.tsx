@@ -1,49 +1,85 @@
-import React from "react";
-import Skill from "../Skill";
-
-interface LinkProps {
-    url: string;
-    linkName: string
-}
+'use client'
+import Link from "next/link";
+import Image from "next/image";
+import React, { useRef, useEffect, useState } from 'react';
 
 interface ExperienceCardProps {
-    timeline: string;
-    positionName: string;
+    title: string;
+    company?: string;
+    timeline?: string;
     description: string[];
-    links?: LinkProps[];
     skills: string[];
+    liveSite: string;
+    sourceCode: string;
+    projectImage: string;
 }
 
-const ExperienceCard  = ({ timeline, positionName, description, links, skills }: ExperienceCardProps) => {
-  return (
-    <div className="hover:bg-modal-bg hover:bg-opacity-50 duration-100 hover:shadow-md w-[95%] sm:flex justify-between rounded-md py-5 px-2 my-2">
-        <div className='sm:pr-4 sm:pl-2 lg:px-0 w-1/3 '>
-            <p className='text-simple-text text-md font-semibold px-2 sm:px-0 w-fit lg:w-full text-nowrap lg:text-wrap '>{timeline}</p>
-        </div>
-        <div className=' sm:w-4/5 '>
-            <div className='px-2'>
-                <p className='text-title-heading font-semibold pb-4'>{positionName}</p>
-                {description.map((desc, index) => (
-                    <p key = {index} className='text-simple-text pb-4 lg:text-md text-sm '>
-                        {desc}
-                    </p>
-                ))}
-                {links && links.length > 0 && (
-                <div>
-                {links.map((link, index) => (
-                <a href={link.url} key={index} target="_blank" className="text-simple-text hover:underline font-semibold text-sm mx-4 my-3">{link.linkName}</a> 
-                ))}
-                </div>
-            )}
-                <div className='w-full  py-1 flex flex-wrap'>
-                {skills.map((item, index) => (
-                    <Skill key = {index} skillName= {item}/>
-                ))}
+const ExperienceCard: React.FC<ExperienceCardProps> = (props) => {
+    const { title, company, timeline, description, sourceCode, liveSite, skills, projectImage } = props;
+    const [isVisible, setIsVisible] = useState(false);
+    const cardRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                }
+            },
+            {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.25, // Adjust this value as needed based on your requirement
+            }
+        );
+
+        if (cardRef.current) {
+            observer.observe(cardRef.current);
+        }
+
+        return () => {
+            if (cardRef.current) {
+                observer.unobserve(cardRef.current);
+            }
+        };
+    }, []);
+
+    return (
+        <div ref={cardRef} className={`mt-10 flex flex-col lg:flex-row opacity-0 ${isVisible ? 'animate-[fadeInLeft_1s_ease-in-out_forwards]' : ''}`}>
+            <div>
+                <h2 className='text-2xl font-semibold w-fit group'>
+                    {title}
+                    <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-secondaryBg"></span>
+                </h2>
+                {company && <h5 className="font-semibold">{company}</h5>}
+                {timeline && <p>{timeline}</p>}
+                {description.map((desc, key) => (<p key={key} className="w-full md:w-[90%] my-5 pl-3 md:pl-6">{desc}</p>))}
+                <div className="flex flex-wrap justify-center md:justify-normal">
+                    {skills.map((skill, key) => (
+                        <p key={key} className="mx-1 px-2 py-1 font-semibold group">
+                            {skill}
+                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-secondaryBg"></span>
+                        </p>
+                    ))}
                 </div>
             </div>
+            <div className='pt-10 md:pr-5 mx-auto'>
+                {projectImage ? <div className="w-80 h-60 relative "><Image src={projectImage} width={320} height={240} alt={title} /></div> : <div className='w-80 h-60 bg-secondaryBg'></div>}
+                {sourceCode.length > 0 && <Link href={sourceCode} target="_blank" rel="noopener noreferrer">
+                    <p className='cursor-pointer font-semibold text-simple-text mt-4 group w-fit'>
+                        Source Code
+                        <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-secondaryBg"></span>
+                    </p>
+                </Link>}
+                <Link href={liveSite} target="_blank" rel="noopener noreferrer">
+                    <p className='cursor-pointer font-semibold text-simple-text my-2 group w-fit'>
+                        Live Site
+                        <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-secondaryBg"></span>
+                    </p>
+                </Link>
+            </div>
         </div>
-  </div>
-  );
-};
+    )
+}
 
 export default ExperienceCard;
