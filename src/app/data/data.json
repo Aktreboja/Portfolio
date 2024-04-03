@@ -63,7 +63,7 @@
                 "A Next.js web application focused on enhancing the discoverability of various tracks, artists, and genres within Spotify.",
                 "Allows the user to be able to analyze their most liked tracks and artists in different time frames, as well as use that data to retrieve better personalized recommendations."
             ],
-            "skills": ["React", "TypeScript", "TailwindCSS", "Next.js", "Postgres", "Google Maps"],
+            "skills": ["React", "TypeScript", "TailwindCSS", "Redux","Next.js", "Postgres", "Google Maps"],
             "projectImage": "/feedme.png",
             "sourceCode": "https://github.com/Aktreboja/FeedMe",
             "liveSite": ""
