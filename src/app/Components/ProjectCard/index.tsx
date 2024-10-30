@@ -1,89 +1,84 @@
-import Link from "next/link";
-import Image from "next/image";
+'use client';
 import React, { useEffect, useRef, useState } from 'react';
 
+interface Project {
+  title: string;
+  description: string[];
+  skills: string[];
+  sourceCode: string;
+  liveSite: string;
+  image?: string;
+  tag: string;
+  company?: string;
+}
+
 interface ProjectCardProps {
-    projectTitle: string;
-    projectDescription: string[];
-    skills: string[];
-    sourceCode: string;
-    liveSite: string;
-    projectImage?: string;
+  project: Project;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = (props) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const { image, title, tag, company } = project;
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
-    const { projectTitle, projectDescription, sourceCode, liveSite, skills, projectImage } = props;
-    const [isVisible, setIsVisible] = useState(false);
-    const cardRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                }
-            },
-            {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.75,
-            }
-        );
-
-        if (cardRef.current) {
-            observer.observe(cardRef.current);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
         }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.25,
+      }
+    );
 
-        return () => {
-            if (cardRef.current) {
-                observer.unobserve(cardRef.current);
-            }
-        };
-    }, []);
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
 
-    return (
-        <div ref={cardRef} className={`mt-10 flex flex-col lg:flex-row opacity-0 ${isVisible ? 'animate-[fadeInLeft_1s_ease-in-out_forwards]' : ''}`}>
-            <div>
-                <h2 className='text-2xl font-semibold w-fit group'>
-                    {projectTitle}
-                    <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-secondaryBg"></span>
-                </h2>
-                {
-                    projectDescription.map((desc, key) => (<p key={key} className="w-full md:w-[90%] my-5 pl-3 md:pl-6">{desc}</p>))
-                }
-                <div className="flex flex-wrap justify-center md:justify-normal">
-                    {
-                        skills.map((skill, key) => (<p key={key} className="mx-1 px-2 py-1 font-semibold group">
-                            {skill}
-                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-secondaryBg"></span>
-                        </p>))
-                    }
-                </div>
-            </div>
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
 
-            {/* Project Images */}
-            <div className='pt-10 md:pr-5 mx-auto'>
-                {projectImage ? <div className="w-80 h-60 relative "><Image src={projectImage} width={320} height={240} alt={projectTitle} /></div> : <div className='w-80 h-60 bg-secondaryBg'></div>}
-                
-                <Link href={sourceCode} target="_blank" rel="noopener noreferrer">
-                    <p className='cursor-pointer font-semibold text-simple-text mt-5 group w-fit'>
-                        Source Code
-                        <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-secondaryBg"></span>
-                    </p>
-                </Link>
-                
-                {liveSite.length > 0 &&
-                    <Link href={liveSite} target="_blank" rel="noopener noreferrer">
-                        <p className='cursor-pointer font-semibold text-simple-text my-2 group w-fit'>
-                            Live Site
-                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-secondaryBg"></span>
-                        </p>
-                    </Link>
-                }
-            </div>
+  return (
+    <div
+      ref={ref}
+      className={`flex flex-col justify-between gap-4 w-full h-full relative opacity-0 ${
+        isVisible ? 'animate-[fadeInLeft_1s_ease-in-out_forwards_1s]' : ''
+      }`}
+    >
+      {/* Project Images */}
+      <div className="mx-auto">
+        {image ? (
+          <img src={image} className="object-cover shadow-md" />
+        ) : (
+          <div className="w-80 h-60 bg-secondaryBg"></div>
+        )}
+      </div>
+      <div className="flex justify-between">
+        <div>
+          {company ? (
+            <h3 className="text-lg font-semibold">{company}</h3>
+          ) : (
+            <h3 className="text-lg font-semibold">{title}</h3>
+          )}
+          {company && (
+            <p className="text-sm text-accentBg text-opacity-60">{title}</p>
+          )}
         </div>
-    )
-}
+
+        <p className="text-lg font-medium text-accentBg text-opacity-60">
+          {tag}
+        </p>
+      </div>
+    </div>
+  );
+};
 
 export default ProjectCard;
