@@ -1,9 +1,9 @@
-<<<<<<< Updated upstream
-import type { Metadata } from 'next'
-import { Montserrat } from "next/font/google";
-import Head from 'next/head'
-import './globals.css'
+import type { Metadata } from 'next';
+import { Montserrat } from 'next/font/google';
+import Head from 'next/head';
+import './globals.css';
 import Navbar from './Components/Layout/Navbar';
+import SmoothScrollProvider from './Contexts/SmoothScrollProvider';
 
 const montserrat = Montserrat({ subsets: ['latin'], weight: 'variable' });
 
@@ -49,9 +49,13 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content={metadata.description || undefined} />
       </Head>
-      <body className={`${montserrat.className} bg-gradient-to-br from-baseBg to-secondaryBg `}>
-        <Navbar />
-        {children}
+      <body
+        className={`${montserrat.className} bg-gradient-to-br from-baseBg to-secondaryBg `}
+      >
+        <SmoothScrollProvider>
+          {/* <Navbar /> */}
+          {children}
+        </SmoothScrollProvider>
       </body>
     </html>
   );
