@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "ldrs": "^1.0.2",
     "next": "^14.0.4",
     "nextra": "^2.13.2",
     "nextra-theme-blog": "^2.13.2",
